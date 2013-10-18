@@ -1,0 +1,2067 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CoachUs.Data.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CoachUsDataStoreContainer">
+          <EntitySet Name="Action" EntityType="CoachUs.Data.Store.Action" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Activity" EntityType="CoachUs.Data.Store.Activity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CoachPlan" EntityType="CoachUs.Data.Store.CoachPlan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Event" EntityType="CoachUs.Data.Store.Event" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventGallery" EntityType="CoachUs.Data.Store.EventGallery" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventTraining" EntityType="CoachUs.Data.Store.EventTraining" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Fare" EntityType="CoachUs.Data.Store.Fare" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="File" EntityType="CoachUs.Data.Store.File" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Inventory" EntityType="CoachUs.Data.Store.Inventory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="License" EntityType="CoachUs.Data.Store.License" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LicensePayments" EntityType="CoachUs.Data.Store.LicensePayments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Permission" EntityType="CoachUs.Data.Store.Permission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Plan" EntityType="CoachUs.Data.Store.Plan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Result" EntityType="CoachUs.Data.Store.Result" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Role" EntityType="CoachUs.Data.Store.Role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sale" EntityType="CoachUs.Data.Store.Sale" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subscription" EntityType="CoachUs.Data.Store.Subscription" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscriptionPayment" EntityType="CoachUs.Data.Store.SubscriptionPayment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Team" EntityType="CoachUs.Data.Store.Team" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TeamPlan" EntityType="CoachUs.Data.Store.TeamPlan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TeamUser" EntityType="CoachUs.Data.Store.TeamUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Training" EntityType="CoachUs.Data.Store.Training" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="CoachUs.Data.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Action_ParentAction" Association="CoachUs.Data.Store.FK_Action_ParentAction">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Action1" EntitySet="Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Training" Association="CoachUs.Data.Store.FK_Activity_Training">
+            <End Role="Training" EntitySet="Training" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoachPlan_Coach" Association="CoachUs.Data.Store.FK_CoachPlan_Coach">
+            <End Role="User" EntitySet="User" />
+            <End Role="CoachPlan" EntitySet="CoachPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoachPlan_Plan" Association="CoachUs.Data.Store.FK_CoachPlan_Plan">
+            <End Role="Plan" EntitySet="Plan" />
+            <End Role="CoachPlan" EntitySet="CoachPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoachPlan_SharedByUser" Association="CoachUs.Data.Store.FK_CoachPlan_SharedByUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="CoachPlan" EntitySet="CoachPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Team" Association="CoachUs.Data.Store.FK_Event_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventGallery_Event" Association="CoachUs.Data.Store.FK_EventGallery_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventGallery" EntitySet="EventGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventGallery_File" Association="CoachUs.Data.Store.FK_EventGallery_File">
+            <End Role="File" EntitySet="File" />
+            <End Role="EventGallery" EntitySet="EventGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTraining_Event" Association="CoachUs.Data.Store.FK_EventTraining_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventTraining" EntitySet="EventTraining" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTraining_Training" Association="CoachUs.Data.Store.FK_EventTraining_Training">
+            <End Role="Training" EntitySet="Training" />
+            <End Role="EventTraining" EntitySet="EventTraining" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fare_Team" Association="CoachUs.Data.Store.FK_Fare_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Fare" EntitySet="Fare" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Team" Association="CoachUs.Data.Store.FK_Inventory_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Inventory" EntitySet="Inventory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_License_TeamOwner" Association="CoachUs.Data.Store.FK_License_TeamOwner">
+            <End Role="User" EntitySet="User" />
+            <End Role="License" EntitySet="License" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LicensePayments_License" Association="CoachUs.Data.Store.FK_LicensePayments_License">
+            <End Role="License" EntitySet="License" />
+            <End Role="LicensePayments" EntitySet="LicensePayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Action" Association="CoachUs.Data.Store.FK_Permission_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Role" Association="CoachUs.Data.Store.FK_Permission_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Athlete" Association="CoachUs.Data.Store.FK_Plan_Athlete">
+            <End Role="User" EntitySet="User" />
+            <End Role="Plan" EntitySet="Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Author" Association="CoachUs.Data.Store.FK_Plan_Author">
+            <End Role="User" EntitySet="User" />
+            <End Role="Plan" EntitySet="Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Coach" Association="CoachUs.Data.Store.FK_Plan_Coach">
+            <End Role="User" EntitySet="User" />
+            <End Role="Plan" EntitySet="Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Modifier" Association="CoachUs.Data.Store.FK_Plan_Modifier">
+            <End Role="User" EntitySet="User" />
+            <End Role="Plan" EntitySet="Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Result_Activity" Association="CoachUs.Data.Store.FK_Result_Activity">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="Result" EntitySet="Result" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Buyer" Association="CoachUs.Data.Store.FK_Sale_Buyer">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Inventory" Association="CoachUs.Data.Store.FK_Sale_Inventory">
+            <End Role="Inventory" EntitySet="Inventory" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Seller" Association="CoachUs.Data.Store.FK_Sale_Seller">
+            <End Role="User" EntitySet="User" />
+            <End Role="Sale" EntitySet="Sale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscription_Team" Association="CoachUs.Data.Store.FK_Subscription_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Subscription" EntitySet="Subscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscription_User" Association="CoachUs.Data.Store.FK_Subscription_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Subscription" EntitySet="Subscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionPayment_Subscription" Association="CoachUs.Data.Store.FK_SubscriptionPayment_Subscription">
+            <End Role="Subscription" EntitySet="Subscription" />
+            <End Role="SubscriptionPayment" EntitySet="SubscriptionPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_Logo" Association="CoachUs.Data.Store.FK_Team_Logo">
+            <End Role="File" EntitySet="File" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_User" Association="CoachUs.Data.Store.FK_Team_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlan_Plan" Association="CoachUs.Data.Store.FK_TeamPlan_Plan">
+            <End Role="Plan" EntitySet="Plan" />
+            <End Role="TeamPlan" EntitySet="TeamPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlan_SharedByUser" Association="CoachUs.Data.Store.FK_TeamPlan_SharedByUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="TeamPlan" EntitySet="TeamPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlan_Team" Association="CoachUs.Data.Store.FK_TeamPlan_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamPlan" EntitySet="TeamPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamUser_Role" Association="CoachUs.Data.Store.FK_TeamUser_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="TeamUser" EntitySet="TeamUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamUser_Team" Association="CoachUs.Data.Store.FK_TeamUser_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamUser" EntitySet="TeamUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamUser_User" Association="CoachUs.Data.Store.FK_TeamUser_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="TeamUser" EntitySet="TeamUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Training_Plan" Association="CoachUs.Data.Store.FK_Training_Plan">
+            <End Role="Plan" EntitySet="Plan" />
+            <End Role="Training" EntitySet="Training" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Picture" Association="CoachUs.Data.Store.FK_User_Picture">
+            <End Role="File" EntitySet="File" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParentActionID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Type" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TrainingID" Type="int" Nullable="false" />
+          <Property Name="Category" Type="tinyint" Nullable="false" />
+          <Property Name="Order" Type="tinyint" Nullable="false" />
+          <Property Name="Repetitions" Type="tinyint" Nullable="false" />
+          <Property Name="Serie" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="Unit" Type="tinyint" Nullable="false" />
+          <Property Name="Goal" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="GoalUnit" Type="tinyint" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CoachPlan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+            <PropertyRef Name="CoachID" />
+          </Key>
+          <Property Name="PlanID" Type="int" Nullable="false" />
+          <Property Name="CoachID" Type="int" Nullable="false" />
+          <Property Name="SharedByUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="75" />
+          <Property Name="Detail" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventGallery">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="FileID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventTraining">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="TrainingID" Type="int" Nullable="false" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Thumbnail" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="Item" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Qty" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="AllowCouchSell" Type="bit" Nullable="false" />
+          <Property Name="AllowCouchChangePrice" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="License">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TeamOwnerID" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="TrialDays" Type="smallint" Nullable="false" />
+          <Property Name="Days" Type="smallint" Nullable="false" />
+          <Property Name="TotalUsers" Type="smallint" Nullable="false" />
+          <Property Name="AvailableUsers" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LicensePayments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LicenseID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Users" Type="smallint" Nullable="false" />
+          <Property Name="Days" Type="smallint" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="AccessType" Type="tinyint" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Template" Type="bit" Nullable="false" />
+          <Property Name="CoachID" Type="int" />
+          <Property Name="AthleteID" Type="int" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="LastModifierID" Type="int" Nullable="false" />
+          <Property Name="LastModifyDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityID" Type="int" Nullable="false" />
+          <Property Name="Order" Type="tinyint" Nullable="false" />
+          <Property Name="ActivityResult" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SellerID" Type="int" Nullable="false" />
+          <Property Name="BuyerID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="PaidDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AthleteID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="MonthlyFee" Type="decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="PaymentDay" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubscriptionPayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubscriptionID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Sport" Type="tinyint" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="75" />
+          <Property Name="TeamOwnerID" Type="int" Nullable="false" />
+          <Property Name="LogoID" Type="int" />
+        </EntityType>
+        <EntityType Name="TeamPlan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="PlanID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="SharedByUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamUser">
+          <Key>
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PlanID" Type="int" Nullable="false" />
+          <Property Name="Day" Type="date" Nullable="false" />
+          <Property Name="Category" Type="tinyint" Nullable="false" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="75" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="Laterality" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="PictureID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Action_ParentAction">
+          <End Role="Action" Type="CoachUs.Data.Store.Action" Multiplicity="1" />
+          <End Role="Action1" Type="CoachUs.Data.Store.Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Action1">
+              <PropertyRef Name="ParentActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Training">
+          <End Role="Training" Type="CoachUs.Data.Store.Training" Multiplicity="1" />
+          <End Role="Activity" Type="CoachUs.Data.Store.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Training">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="TrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoachPlan_Coach">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="CoachPlan" Type="CoachUs.Data.Store.CoachPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CoachPlan">
+              <PropertyRef Name="CoachID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoachPlan_Plan">
+          <End Role="Plan" Type="CoachUs.Data.Store.Plan" Multiplicity="1" />
+          <End Role="CoachPlan" Type="CoachUs.Data.Store.CoachPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CoachPlan">
+              <PropertyRef Name="PlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoachPlan_SharedByUser">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="CoachPlan" Type="CoachUs.Data.Store.CoachPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CoachPlan">
+              <PropertyRef Name="SharedByUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Team">
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="1" />
+          <End Role="Event" Type="CoachUs.Data.Store.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventGallery_Event">
+          <End Role="Event" Type="CoachUs.Data.Store.Event" Multiplicity="1" />
+          <End Role="EventGallery" Type="CoachUs.Data.Store.EventGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventGallery">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventGallery_File">
+          <End Role="File" Type="CoachUs.Data.Store.File" Multiplicity="1" />
+          <End Role="EventGallery" Type="CoachUs.Data.Store.EventGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventGallery">
+              <PropertyRef Name="FileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTraining_Event">
+          <End Role="Event" Type="CoachUs.Data.Store.Event" Multiplicity="1" />
+          <End Role="EventTraining" Type="CoachUs.Data.Store.EventTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTraining">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTraining_Training">
+          <End Role="Training" Type="CoachUs.Data.Store.Training" Multiplicity="1" />
+          <End Role="EventTraining" Type="CoachUs.Data.Store.EventTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Training">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTraining">
+              <PropertyRef Name="TrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fare_Team">
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="1" />
+          <End Role="Fare" Type="CoachUs.Data.Store.Fare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Fare">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Team">
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="1" />
+          <End Role="Inventory" Type="CoachUs.Data.Store.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_License_TeamOwner">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="License" Type="CoachUs.Data.Store.License" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="License">
+              <PropertyRef Name="TeamOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LicensePayments_License">
+          <End Role="License" Type="CoachUs.Data.Store.License" Multiplicity="1" />
+          <End Role="LicensePayments" Type="CoachUs.Data.Store.LicensePayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="License">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LicensePayments">
+              <PropertyRef Name="LicenseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Action">
+          <End Role="Action" Type="CoachUs.Data.Store.Action" Multiplicity="1" />
+          <End Role="Permission" Type="CoachUs.Data.Store.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Role">
+          <End Role="Role" Type="CoachUs.Data.Store.Role" Multiplicity="1" />
+          <End Role="Permission" Type="CoachUs.Data.Store.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Athlete">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="0..1" />
+          <End Role="Plan" Type="CoachUs.Data.Store.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="AthleteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Author">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="Plan" Type="CoachUs.Data.Store.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Coach">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="0..1" />
+          <End Role="Plan" Type="CoachUs.Data.Store.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="CoachID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Modifier">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="Plan" Type="CoachUs.Data.Store.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="LastModifierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Result_Activity">
+          <End Role="Activity" Type="CoachUs.Data.Store.Activity" Multiplicity="1" />
+          <End Role="Result" Type="CoachUs.Data.Store.Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Result">
+              <PropertyRef Name="ActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Buyer">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="Sale" Type="CoachUs.Data.Store.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="BuyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Inventory">
+          <End Role="Inventory" Type="CoachUs.Data.Store.Inventory" Multiplicity="1" />
+          <End Role="Sale" Type="CoachUs.Data.Store.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Seller">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="Sale" Type="CoachUs.Data.Store.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="SellerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscription_Team">
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="1" />
+          <End Role="Subscription" Type="CoachUs.Data.Store.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscription_User">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="Subscription" Type="CoachUs.Data.Store.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="AthleteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionPayment_Subscription">
+          <End Role="Subscription" Type="CoachUs.Data.Store.Subscription" Multiplicity="1" />
+          <End Role="SubscriptionPayment" Type="CoachUs.Data.Store.SubscriptionPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubscriptionPayment">
+              <PropertyRef Name="SubscriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_Logo">
+          <End Role="File" Type="CoachUs.Data.Store.File" Multiplicity="0..1" />
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="LogoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_User">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="TeamOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlan_Plan">
+          <End Role="Plan" Type="CoachUs.Data.Store.Plan" Multiplicity="1" />
+          <End Role="TeamPlan" Type="CoachUs.Data.Store.TeamPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamPlan">
+              <PropertyRef Name="PlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlan_SharedByUser">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="TeamPlan" Type="CoachUs.Data.Store.TeamPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamPlan">
+              <PropertyRef Name="SharedByUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlan_Team">
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="1" />
+          <End Role="TeamPlan" Type="CoachUs.Data.Store.TeamPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamPlan">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamUser_Role">
+          <End Role="Role" Type="CoachUs.Data.Store.Role" Multiplicity="1" />
+          <End Role="TeamUser" Type="CoachUs.Data.Store.TeamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamUser">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamUser_Team">
+          <End Role="Team" Type="CoachUs.Data.Store.Team" Multiplicity="1" />
+          <End Role="TeamUser" Type="CoachUs.Data.Store.TeamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamUser">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamUser_User">
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="1" />
+          <End Role="TeamUser" Type="CoachUs.Data.Store.TeamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamUser">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Training_Plan">
+          <End Role="Plan" Type="CoachUs.Data.Store.Plan" Multiplicity="1" />
+          <End Role="Training" Type="CoachUs.Data.Store.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="PlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Picture">
+          <End Role="File" Type="CoachUs.Data.Store.File" Multiplicity="0..1" />
+          <End Role="User" Type="CoachUs.Data.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="PictureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CoachUs.Data" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CoachUsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Actions" EntityType="CoachUs.Data.Action" />
+          <EntitySet Name="Activities" EntityType="CoachUs.Data.Activity" />
+          <EntitySet Name="CoachPlans" EntityType="CoachUs.Data.CoachPlan" />
+          <EntitySet Name="Events" EntityType="CoachUs.Data.Event" />
+          <EntitySet Name="EventTrainings" EntityType="CoachUs.Data.EventTraining" />
+          <EntitySet Name="Fares" EntityType="CoachUs.Data.Fare" />
+          <EntitySet Name="Files" EntityType="CoachUs.Data.File" />
+          <EntitySet Name="Inventories" EntityType="CoachUs.Data.Inventory" />
+          <EntitySet Name="Licenses" EntityType="CoachUs.Data.License" />
+          <EntitySet Name="LicensePayments" EntityType="CoachUs.Data.LicensePayment" />
+          <EntitySet Name="Permissions" EntityType="CoachUs.Data.Permission" />
+          <EntitySet Name="Plans" EntityType="CoachUs.Data.Plan" />
+          <EntitySet Name="Results" EntityType="CoachUs.Data.Result" />
+          <EntitySet Name="Roles" EntityType="CoachUs.Data.Role" />
+          <EntitySet Name="Sales" EntityType="CoachUs.Data.Sale" />
+          <EntitySet Name="Subscriptions" EntityType="CoachUs.Data.Subscription" />
+          <EntitySet Name="SubscriptionPayments" EntityType="CoachUs.Data.SubscriptionPayment" />
+          <EntitySet Name="Teams" EntityType="CoachUs.Data.Team" />
+          <EntitySet Name="TeamPlans" EntityType="CoachUs.Data.TeamPlan" />
+          <EntitySet Name="TeamUsers" EntityType="CoachUs.Data.TeamUser" />
+          <EntitySet Name="Trainings" EntityType="CoachUs.Data.Training" />
+          <EntitySet Name="Users" EntityType="CoachUs.Data.User" />
+          <AssociationSet Name="FK_Action_ParentAction" Association="CoachUs.Data.FK_Action_ParentAction">
+            <End Role="Action" EntitySet="Actions" />
+            <End Role="Action1" EntitySet="Actions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Action" Association="CoachUs.Data.FK_Permission_Action">
+            <End Role="Action" EntitySet="Actions" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Activity_Training" Association="CoachUs.Data.FK_Activity_Training">
+            <End Role="Training" EntitySet="Trainings" />
+            <End Role="Activity" EntitySet="Activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Result_Activity" Association="CoachUs.Data.FK_Result_Activity">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="Result" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoachPlan_Coach" Association="CoachUs.Data.FK_CoachPlan_Coach">
+            <End Role="User" EntitySet="Users" />
+            <End Role="CoachPlan" EntitySet="CoachPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoachPlan_Plan" Association="CoachUs.Data.FK_CoachPlan_Plan">
+            <End Role="Plan" EntitySet="Plans" />
+            <End Role="CoachPlan" EntitySet="CoachPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CoachPlan_SharedByUser" Association="CoachUs.Data.FK_CoachPlan_SharedByUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="CoachPlan" EntitySet="CoachPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Team" Association="CoachUs.Data.FK_Event_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTraining_Event" Association="CoachUs.Data.FK_EventTraining_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="EventTraining" EntitySet="EventTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventTraining_Training" Association="CoachUs.Data.FK_EventTraining_Training">
+            <End Role="Training" EntitySet="Trainings" />
+            <End Role="EventTraining" EntitySet="EventTrainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fare_Team" Association="CoachUs.Data.FK_Fare_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Fare" EntitySet="Fares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_Logo" Association="CoachUs.Data.FK_Team_Logo">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Picture" Association="CoachUs.Data.FK_User_Picture">
+            <End Role="File" EntitySet="Files" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventory_Team" Association="CoachUs.Data.FK_Inventory_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Inventory" Association="CoachUs.Data.FK_Sale_Inventory">
+            <End Role="Inventory" EntitySet="Inventories" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_License_TeamOwner" Association="CoachUs.Data.FK_License_TeamOwner">
+            <End Role="User" EntitySet="Users" />
+            <End Role="License" EntitySet="Licenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LicensePayments_License" Association="CoachUs.Data.FK_LicensePayments_License">
+            <End Role="License" EntitySet="Licenses" />
+            <End Role="LicensePayments" EntitySet="LicensePayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Role" Association="CoachUs.Data.FK_Permission_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Permission" EntitySet="Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Athlete" Association="CoachUs.Data.FK_Plan_Athlete">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Plan" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Author" Association="CoachUs.Data.FK_Plan_Author">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Plan" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Coach" Association="CoachUs.Data.FK_Plan_Coach">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Plan" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plan_Modifier" Association="CoachUs.Data.FK_Plan_Modifier">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Plan" EntitySet="Plans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlan_Plan" Association="CoachUs.Data.FK_TeamPlan_Plan">
+            <End Role="Plan" EntitySet="Plans" />
+            <End Role="TeamPlan" EntitySet="TeamPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Training_Plan" Association="CoachUs.Data.FK_Training_Plan">
+            <End Role="Plan" EntitySet="Plans" />
+            <End Role="Training" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamUser_Role" Association="CoachUs.Data.FK_TeamUser_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="TeamUser" EntitySet="TeamUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Buyer" Association="CoachUs.Data.FK_Sale_Buyer">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sale_Seller" Association="CoachUs.Data.FK_Sale_Seller">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscription_Team" Association="CoachUs.Data.FK_Subscription_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscription_User" Association="CoachUs.Data.FK_Subscription_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionPayment_Subscription" Association="CoachUs.Data.FK_SubscriptionPayment_Subscription">
+            <End Role="Subscription" EntitySet="Subscriptions" />
+            <End Role="SubscriptionPayment" EntitySet="SubscriptionPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_User" Association="CoachUs.Data.FK_Team_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlan_Team" Association="CoachUs.Data.FK_TeamPlan_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="TeamPlan" EntitySet="TeamPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamUser_Team" Association="CoachUs.Data.FK_TeamUser_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="TeamUser" EntitySet="TeamUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlan_SharedByUser" Association="CoachUs.Data.FK_TeamPlan_SharedByUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TeamPlan" EntitySet="TeamPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamUser_User" Association="CoachUs.Data.FK_TeamUser_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TeamUser" EntitySet="TeamUsers" />
+          </AssociationSet>
+          <AssociationSet Name="EventGallery" Association="CoachUs.Data.EventGallery">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentActionID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="ChildActions" Relationship="CoachUs.Data.FK_Action_ParentAction" FromRole="Action" ToRole="Action1" />
+          <NavigationProperty Name="ParentAction" Relationship="CoachUs.Data.FK_Action_ParentAction" FromRole="Action1" ToRole="Action" />
+          <NavigationProperty Name="Permissions" Relationship="CoachUs.Data.FK_Permission_Action" FromRole="Action" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TrainingID" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="Byte" Nullable="false" />
+          <Property Name="Order" Type="Byte" Nullable="false" />
+          <Property Name="Repetitions" Type="Byte" Nullable="false" />
+          <Property Name="Serie" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="Unit" Type="Byte" Nullable="false" />
+          <Property Name="Goal" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="GoalUnit" Type="Byte" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Training" Relationship="CoachUs.Data.FK_Activity_Training" FromRole="Activity" ToRole="Training" />
+          <NavigationProperty Name="Results" Relationship="CoachUs.Data.FK_Result_Activity" FromRole="Activity" ToRole="Result" />
+        </EntityType>
+        <EntityType Name="CoachPlan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+            <PropertyRef Name="CoachID" />
+          </Key>
+          <Property Name="PlanID" Type="Int32" Nullable="false" />
+          <Property Name="CoachID" Type="Int32" Nullable="false" />
+          <Property Name="SharedByUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Coach" Relationship="CoachUs.Data.FK_CoachPlan_Coach" FromRole="CoachPlan" ToRole="User" />
+          <NavigationProperty Name="Plan" Relationship="CoachUs.Data.FK_CoachPlan_Plan" FromRole="CoachPlan" ToRole="Plan" />
+          <NavigationProperty Name="SharingUser" Relationship="CoachUs.Data.FK_CoachPlan_SharedByUser" FromRole="CoachPlan" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="75" Unicode="true" FixedLength="false" />
+          <Property Name="Detail" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Team" Relationship="CoachUs.Data.FK_Event_Team" FromRole="Event" ToRole="Team" />
+          <NavigationProperty Name="EventTrainings" Relationship="CoachUs.Data.FK_EventTraining_Event" FromRole="Event" ToRole="EventTraining" />
+          <NavigationProperty Name="Files" Relationship="CoachUs.Data.EventGallery" FromRole="Event" ToRole="File" />
+        </EntityType>
+        <EntityType Name="EventTraining">
+          <Key>
+            <PropertyRef Name="EventID" />
+            <PropertyRef Name="TrainingID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="TrainingID" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="CoachUs.Data.FK_EventTraining_Event" FromRole="EventTraining" ToRole="Event" />
+          <NavigationProperty Name="Training" Relationship="CoachUs.Data.FK_EventTraining_Training" FromRole="EventTraining" ToRole="Training" />
+        </EntityType>
+        <EntityType Name="Fare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Team" Relationship="CoachUs.Data.FK_Fare_Team" FromRole="Fare" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Thumbnail" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Teams" Relationship="CoachUs.Data.FK_Team_Logo" FromRole="File" ToRole="Team" />
+          <NavigationProperty Name="Users" Relationship="CoachUs.Data.FK_User_Picture" FromRole="File" ToRole="User" />
+          <NavigationProperty Name="Events" Relationship="CoachUs.Data.EventGallery" FromRole="File" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Qty" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="AllowCouchSell" Type="Boolean" Nullable="false" />
+          <Property Name="AllowCouchChangePrice" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="CoachUs.Data.FK_Inventory_Team" FromRole="Inventory" ToRole="Team" />
+          <NavigationProperty Name="Sales" Relationship="CoachUs.Data.FK_Sale_Inventory" FromRole="Inventory" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="License">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamOwnerID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TrialDays" Type="Int16" Nullable="false" />
+          <Property Name="Days" Type="Int16" Nullable="false" />
+          <Property Name="TotalUsers" Type="Int16" Nullable="false" />
+          <Property Name="AvailableUsers" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="CoachUs.Data.FK_License_TeamOwner" FromRole="License" ToRole="User" />
+          <NavigationProperty Name="LicensePayments" Relationship="CoachUs.Data.FK_LicensePayments_License" FromRole="License" ToRole="LicensePayments" />
+        </EntityType>
+        <EntityType Name="LicensePayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LicenseID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Users" Type="Int16" Nullable="false" />
+          <Property Name="Days" Type="Int16" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="License" Relationship="CoachUs.Data.FK_LicensePayments_License" FromRole="LicensePayments" ToRole="License" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="AccessType" Type="Byte" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Action" Relationship="CoachUs.Data.FK_Permission_Action" FromRole="Permission" ToRole="Action" />
+          <NavigationProperty Name="Role" Relationship="CoachUs.Data.FK_Permission_Role" FromRole="Permission" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Template" Type="Boolean" Nullable="false" />
+          <Property Name="CoachID" Type="Int32" />
+          <Property Name="AthleteID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="LastModifierID" Type="Int32" Nullable="false" />
+          <Property Name="LastModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Coachs" Relationship="CoachUs.Data.FK_CoachPlan_Plan" FromRole="Plan" ToRole="CoachPlan" />
+          <NavigationProperty Name="Athlete" Relationship="CoachUs.Data.FK_Plan_Athlete" FromRole="Plan" ToRole="User" />
+          <NavigationProperty Name="Author" Relationship="CoachUs.Data.FK_Plan_Author" FromRole="Plan" ToRole="User" />
+          <NavigationProperty Name="Coach" Relationship="CoachUs.Data.FK_Plan_Coach" FromRole="Plan" ToRole="User" />
+          <NavigationProperty Name="Modifier" Relationship="CoachUs.Data.FK_Plan_Modifier" FromRole="Plan" ToRole="User" />
+          <NavigationProperty Name="Teams" Relationship="CoachUs.Data.FK_TeamPlan_Plan" FromRole="Plan" ToRole="TeamPlan" />
+          <NavigationProperty Name="Trainings" Relationship="CoachUs.Data.FK_Training_Plan" FromRole="Plan" ToRole="Training" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityID" Type="Int32" Nullable="false" />
+          <Property Name="Order" Type="Byte" Nullable="false" />
+          <Property Name="ActivityResult" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Activity" Relationship="CoachUs.Data.FK_Result_Activity" FromRole="Result" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Permissions" Relationship="CoachUs.Data.FK_Permission_Role" FromRole="Role" ToRole="Permission" />
+          <NavigationProperty Name="TeamUsers" Relationship="CoachUs.Data.FK_TeamUser_Role" FromRole="Role" ToRole="TeamUser" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SellerID" Type="Int32" Nullable="false" />
+          <Property Name="BuyerID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PaidDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Inventory" Relationship="CoachUs.Data.FK_Sale_Inventory" FromRole="Sale" ToRole="Inventory" />
+          <NavigationProperty Name="Buyer" Relationship="CoachUs.Data.FK_Sale_Buyer" FromRole="Sale" ToRole="User" />
+          <NavigationProperty Name="Seller" Relationship="CoachUs.Data.FK_Sale_Seller" FromRole="Sale" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AthleteID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="MonthlyFee" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+          <Property Name="PaymentDay" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="CoachUs.Data.FK_Subscription_Team" FromRole="Subscription" ToRole="Team" />
+          <NavigationProperty Name="User" Relationship="CoachUs.Data.FK_Subscription_User" FromRole="Subscription" ToRole="User" />
+          <NavigationProperty Name="SubscriptionPayments" Relationship="CoachUs.Data.FK_SubscriptionPayment_Subscription" FromRole="Subscription" ToRole="SubscriptionPayment" />
+        </EntityType>
+        <EntityType Name="SubscriptionPayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SubscriptionID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Subscription" Relationship="CoachUs.Data.FK_SubscriptionPayment_Subscription" FromRole="SubscriptionPayment" ToRole="Subscription" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Sport" Type="Byte" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="75" Unicode="true" FixedLength="false" />
+          <Property Name="TeamOwnerID" Type="Int32" Nullable="false" />
+          <Property Name="LogoID" Type="Int32" />
+          <NavigationProperty Name="Events" Relationship="CoachUs.Data.FK_Event_Team" FromRole="Team" ToRole="Event" />
+          <NavigationProperty Name="Fares" Relationship="CoachUs.Data.FK_Fare_Team" FromRole="Team" ToRole="Fare" />
+          <NavigationProperty Name="File" Relationship="CoachUs.Data.FK_Team_Logo" FromRole="Team" ToRole="File" />
+          <NavigationProperty Name="Inventories" Relationship="CoachUs.Data.FK_Inventory_Team" FromRole="Team" ToRole="Inventory" />
+          <NavigationProperty Name="Subscriptions" Relationship="CoachUs.Data.FK_Subscription_Team" FromRole="Team" ToRole="Subscription" />
+          <NavigationProperty Name="Owner" Relationship="CoachUs.Data.FK_Team_User" FromRole="Team" ToRole="User" />
+          <NavigationProperty Name="Plans" Relationship="CoachUs.Data.FK_TeamPlan_Team" FromRole="Team" ToRole="TeamPlan" />
+          <NavigationProperty Name="Users" Relationship="CoachUs.Data.FK_TeamUser_Team" FromRole="Team" ToRole="TeamUser" />
+        </EntityType>
+        <EntityType Name="TeamPlan">
+          <Key>
+            <PropertyRef Name="PlanID" />
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="PlanID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
+          <Property Name="SharedByUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Plan" Relationship="CoachUs.Data.FK_TeamPlan_Plan" FromRole="TeamPlan" ToRole="Plan" />
+          <NavigationProperty Name="Team" Relationship="CoachUs.Data.FK_TeamPlan_Team" FromRole="TeamPlan" ToRole="Team" />
+          <NavigationProperty Name="User" Relationship="CoachUs.Data.FK_TeamPlan_SharedByUser" FromRole="TeamPlan" ToRole="User" />
+        </EntityType>
+        <EntityType Name="TeamUser">
+          <Key>
+            <PropertyRef Name="TeamID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="CoachUs.Data.FK_TeamUser_Role" FromRole="TeamUser" ToRole="Role" />
+          <NavigationProperty Name="Team" Relationship="CoachUs.Data.FK_TeamUser_Team" FromRole="TeamUser" ToRole="Team" />
+          <NavigationProperty Name="User" Relationship="CoachUs.Data.FK_TeamUser_User" FromRole="TeamUser" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanID" Type="Int32" Nullable="false" />
+          <Property Name="Day" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Category" Type="Byte" Nullable="false" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Activities" Relationship="CoachUs.Data.FK_Activity_Training" FromRole="Training" ToRole="Activity" />
+          <NavigationProperty Name="EventTrainings" Relationship="CoachUs.Data.FK_EventTraining_Training" FromRole="Training" ToRole="EventTraining" />
+          <NavigationProperty Name="Plan" Relationship="CoachUs.Data.FK_Training_Plan" FromRole="Training" ToRole="Plan" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="75" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="Laterality" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PictureID" Type="Int32" />
+          <NavigationProperty Name="CoachPlans" Relationship="CoachUs.Data.FK_CoachPlan_Coach" FromRole="User" ToRole="CoachPlan" />
+          <NavigationProperty Name="SharedPlans" Relationship="CoachUs.Data.FK_CoachPlan_SharedByUser" FromRole="User" ToRole="CoachPlan" />
+          <NavigationProperty Name="File" Relationship="CoachUs.Data.FK_User_Picture" FromRole="User" ToRole="File" />
+          <NavigationProperty Name="Licenses" Relationship="CoachUs.Data.FK_License_TeamOwner" FromRole="User" ToRole="License" />
+          <NavigationProperty Name="Plans" Relationship="CoachUs.Data.FK_Plan_Athlete" FromRole="User" ToRole="Plan" />
+          <NavigationProperty Name="AuthorPlans" Relationship="CoachUs.Data.FK_Plan_Author" FromRole="User" ToRole="Plan" />
+          <NavigationProperty Name="ModifierPlans" Relationship="CoachUs.Data.FK_Plan_Coach" FromRole="User" ToRole="Plan" />
+          <NavigationProperty Name="BuyerPlans" Relationship="CoachUs.Data.FK_Plan_Modifier" FromRole="User" ToRole="Plan" />
+          <NavigationProperty Name="BuyerSales" Relationship="CoachUs.Data.FK_Sale_Buyer" FromRole="User" ToRole="Sale" />
+          <NavigationProperty Name="SellerSales" Relationship="CoachUs.Data.FK_Sale_Seller" FromRole="User" ToRole="Sale" />
+          <NavigationProperty Name="Subscriptions" Relationship="CoachUs.Data.FK_Subscription_User" FromRole="User" ToRole="Subscription" />
+          <NavigationProperty Name="OwnTeams" Relationship="CoachUs.Data.FK_Team_User" FromRole="User" ToRole="Team" />
+          <NavigationProperty Name="SharedTeamPlans" Relationship="CoachUs.Data.FK_TeamPlan_SharedByUser" FromRole="User" ToRole="TeamPlan" />
+          <NavigationProperty Name="Teams" Relationship="CoachUs.Data.FK_TeamUser_User" FromRole="User" ToRole="TeamUser" />
+        </EntityType>
+        <Association Name="FK_Action_ParentAction">
+          <End Role="Action" Type="CoachUs.Data.Action" Multiplicity="1" />
+          <End Role="Action1" Type="CoachUs.Data.Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Action1">
+              <PropertyRef Name="ParentActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Action">
+          <End Role="Action" Type="CoachUs.Data.Action" Multiplicity="1" />
+          <End Role="Permission" Type="CoachUs.Data.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Activity_Training">
+          <End Role="Training" Type="CoachUs.Data.Training" Multiplicity="1" />
+          <End Role="Activity" Type="CoachUs.Data.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Training">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="TrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Result_Activity">
+          <End Role="Activity" Type="CoachUs.Data.Activity" Multiplicity="1" />
+          <End Role="Result" Type="CoachUs.Data.Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Result">
+              <PropertyRef Name="ActivityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoachPlan_Coach">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="CoachPlan" Type="CoachUs.Data.CoachPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CoachPlan">
+              <PropertyRef Name="CoachID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoachPlan_Plan">
+          <End Role="Plan" Type="CoachUs.Data.Plan" Multiplicity="1" />
+          <End Role="CoachPlan" Type="CoachUs.Data.CoachPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CoachPlan">
+              <PropertyRef Name="PlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CoachPlan_SharedByUser">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="CoachPlan" Type="CoachUs.Data.CoachPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CoachPlan">
+              <PropertyRef Name="SharedByUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Team">
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="1" />
+          <End Role="Event" Type="CoachUs.Data.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTraining_Event">
+          <End Role="Event" Type="CoachUs.Data.Event" Multiplicity="1" />
+          <End Role="EventTraining" Type="CoachUs.Data.EventTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTraining">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventTraining_Training">
+          <End Role="Training" Type="CoachUs.Data.Training" Multiplicity="1" />
+          <End Role="EventTraining" Type="CoachUs.Data.EventTraining" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Training">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventTraining">
+              <PropertyRef Name="TrainingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fare_Team">
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="1" />
+          <End Role="Fare" Type="CoachUs.Data.Fare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Fare">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_Logo">
+          <End Role="File" Type="CoachUs.Data.File" Multiplicity="0..1" />
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="LogoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Picture">
+          <End Role="File" Type="CoachUs.Data.File" Multiplicity="0..1" />
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="PictureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inventory_Team">
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="1" />
+          <End Role="Inventory" Type="CoachUs.Data.Inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventory">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Inventory">
+          <End Role="Inventory" Type="CoachUs.Data.Inventory" Multiplicity="1" />
+          <End Role="Sale" Type="CoachUs.Data.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inventory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_License_TeamOwner">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="License" Type="CoachUs.Data.License" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="License">
+              <PropertyRef Name="TeamOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LicensePayments_License">
+          <End Role="License" Type="CoachUs.Data.License" Multiplicity="1" />
+          <End Role="LicensePayments" Type="CoachUs.Data.LicensePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="License">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LicensePayments">
+              <PropertyRef Name="LicenseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Role">
+          <End Role="Role" Type="CoachUs.Data.Role" Multiplicity="1" />
+          <End Role="Permission" Type="CoachUs.Data.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Athlete">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="0..1" />
+          <End Role="Plan" Type="CoachUs.Data.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="AthleteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Author">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="Plan" Type="CoachUs.Data.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Coach">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="0..1" />
+          <End Role="Plan" Type="CoachUs.Data.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="CoachID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plan_Modifier">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="Plan" Type="CoachUs.Data.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Plan">
+              <PropertyRef Name="LastModifierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlan_Plan">
+          <End Role="Plan" Type="CoachUs.Data.Plan" Multiplicity="1" />
+          <End Role="TeamPlan" Type="CoachUs.Data.TeamPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamPlan">
+              <PropertyRef Name="PlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Training_Plan">
+          <End Role="Plan" Type="CoachUs.Data.Plan" Multiplicity="1" />
+          <End Role="Training" Type="CoachUs.Data.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="PlanID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamUser_Role">
+          <End Role="Role" Type="CoachUs.Data.Role" Multiplicity="1" />
+          <End Role="TeamUser" Type="CoachUs.Data.TeamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamUser">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Buyer">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="Sale" Type="CoachUs.Data.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="BuyerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sale_Seller">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="Sale" Type="CoachUs.Data.Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="SellerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscription_Team">
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="1" />
+          <End Role="Subscription" Type="CoachUs.Data.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscription_User">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="Subscription" Type="CoachUs.Data.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="AthleteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionPayment_Subscription">
+          <End Role="Subscription" Type="CoachUs.Data.Subscription" Multiplicity="1" />
+          <End Role="SubscriptionPayment" Type="CoachUs.Data.SubscriptionPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubscriptionPayment">
+              <PropertyRef Name="SubscriptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_User">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="TeamOwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlan_Team">
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="1" />
+          <End Role="TeamPlan" Type="CoachUs.Data.TeamPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamPlan">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamUser_Team">
+          <End Role="Team" Type="CoachUs.Data.Team" Multiplicity="1" />
+          <End Role="TeamUser" Type="CoachUs.Data.TeamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamUser">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlan_SharedByUser">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="TeamPlan" Type="CoachUs.Data.TeamPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamPlan">
+              <PropertyRef Name="SharedByUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamUser_User">
+          <End Role="User" Type="CoachUs.Data.User" Multiplicity="1" />
+          <End Role="TeamUser" Type="CoachUs.Data.TeamUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TeamUser">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventGallery">
+          <End Role="Event" Type="CoachUs.Data.Event" Multiplicity="*" />
+          <End Role="File" Type="CoachUs.Data.File" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CoachUsDataStoreContainer" CdmEntityContainer="CoachUsEntities">
+          <EntitySetMapping Name="Actions">
+            <EntityTypeMapping TypeName="CoachUs.Data.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ParentActionID" ColumnName="ParentActionID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="CoachUs.Data.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Repetitions" ColumnName="Repetitions" />
+                <ScalarProperty Name="Serie" ColumnName="Serie" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Goal" ColumnName="Goal" />
+                <ScalarProperty Name="GoalUnit" ColumnName="GoalUnit" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CoachPlans">
+            <EntityTypeMapping TypeName="CoachUs.Data.CoachPlan">
+              <MappingFragment StoreEntitySet="CoachPlan">
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+                <ScalarProperty Name="CoachID" ColumnName="CoachID" />
+                <ScalarProperty Name="SharedByUser" ColumnName="SharedByUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="CoachUs.Data.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventTrainings">
+            <EntityTypeMapping TypeName="CoachUs.Data.EventTraining">
+              <MappingFragment StoreEntitySet="EventTraining">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="TrainingID" ColumnName="TrainingID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fares">
+            <EntityTypeMapping TypeName="CoachUs.Data.Fare">
+              <MappingFragment StoreEntitySet="Fare">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="CoachUs.Data.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventories">
+            <EntityTypeMapping TypeName="CoachUs.Data.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="AllowCouchSell" ColumnName="AllowCouchSell" />
+                <ScalarProperty Name="AllowCouchChangePrice" ColumnName="AllowCouchChangePrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Licenses">
+            <EntityTypeMapping TypeName="CoachUs.Data.License">
+              <MappingFragment StoreEntitySet="License">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TeamOwnerID" ColumnName="TeamOwnerID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="TrialDays" ColumnName="TrialDays" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="TotalUsers" ColumnName="TotalUsers" />
+                <ScalarProperty Name="AvailableUsers" ColumnName="AvailableUsers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LicensePayments">
+            <EntityTypeMapping TypeName="CoachUs.Data.LicensePayment">
+              <MappingFragment StoreEntitySet="LicensePayments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Users" ColumnName="Users" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="CoachUs.Data.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="AccessType" ColumnName="AccessType" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plans">
+            <EntityTypeMapping TypeName="CoachUs.Data.Plan">
+              <MappingFragment StoreEntitySet="Plan">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Template" ColumnName="Template" />
+                <ScalarProperty Name="CoachID" ColumnName="CoachID" />
+                <ScalarProperty Name="AthleteID" ColumnName="AthleteID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="LastModifierID" ColumnName="LastModifierID" />
+                <ScalarProperty Name="LastModifyDate" ColumnName="LastModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="CoachUs.Data.Result">
+              <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="ActivityResult" ColumnName="ActivityResult" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CoachUs.Data.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="CoachUs.Data.Sale">
+              <MappingFragment StoreEntitySet="Sale">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SellerID" ColumnName="SellerID" />
+                <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriptions">
+            <EntityTypeMapping TypeName="CoachUs.Data.Subscription">
+              <MappingFragment StoreEntitySet="Subscription">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AthleteID" ColumnName="AthleteID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="MonthlyFee" ColumnName="MonthlyFee" />
+                <ScalarProperty Name="PaymentDay" ColumnName="PaymentDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscriptionPayments">
+            <EntityTypeMapping TypeName="CoachUs.Data.SubscriptionPayment">
+              <MappingFragment StoreEntitySet="SubscriptionPayment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SubscriptionID" ColumnName="SubscriptionID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="CoachUs.Data.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sport" ColumnName="Sport" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TeamOwnerID" ColumnName="TeamOwnerID" />
+                <ScalarProperty Name="LogoID" ColumnName="LogoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamPlans">
+            <EntityTypeMapping TypeName="CoachUs.Data.TeamPlan">
+              <MappingFragment StoreEntitySet="TeamPlan">
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="SharedByUser" ColumnName="SharedByUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamUsers">
+            <EntityTypeMapping TypeName="CoachUs.Data.TeamUser">
+              <MappingFragment StoreEntitySet="TeamUser">
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainings">
+            <EntityTypeMapping TypeName="CoachUs.Data.Training">
+              <MappingFragment StoreEntitySet="Training">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CoachUs.Data.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Laterality" ColumnName="Laterality" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PictureID" ColumnName="PictureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="EventGallery" TypeName="CoachUs.Data.EventGallery" StoreEntitySet="EventGallery">
+            <EndProperty Name="Event">
+              <ScalarProperty Name="ID" ColumnName="EventID" />
+            </EndProperty>
+            <EndProperty Name="File">
+              <ScalarProperty Name="ID" ColumnName="FileID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

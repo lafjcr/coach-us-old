@@ -1250,7 +1250,7 @@
           <Property Name="MonthlyFee" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
           <Property Name="PaymentDay" Type="Byte" Nullable="false" />
           <NavigationProperty Name="Team" Relationship="CoachUs.Data.FK_Subscription_Team" FromRole="Subscription" ToRole="Team" />
-          <NavigationProperty Name="User" Relationship="CoachUs.Data.FK_Subscription_User" FromRole="Subscription" ToRole="User" />
+          <NavigationProperty Name="Athlete" Relationship="CoachUs.Data.FK_Subscription_User" FromRole="Subscription" ToRole="User" />
           <NavigationProperty Name="SubscriptionPayments" Relationship="CoachUs.Data.FK_SubscriptionPayment_Subscription" FromRole="Subscription" ToRole="SubscriptionPayment" />
         </EntityType>
         <EntityType Name="SubscriptionPayment">

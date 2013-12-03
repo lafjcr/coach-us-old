@@ -28,7 +28,7 @@ namespace CoachUs.Data.Entities
         public byte PaymentDay { get; set; }
     
         public virtual Team Team { get; set; }
-        public virtual User User { get; set; }
+        public virtual User Athlete { get; set; }
         public virtual ICollection<SubscriptionPayment> SubscriptionPayments { get; set; }
     }
 }

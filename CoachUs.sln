@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoachUs.Data.Entities", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoachUs.Managers", "CoachUs.Managers\CoachUs.Managers.csproj", "{CFB3D8CF-9098-41A4-9EC3-D257EA4AB795}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoachUs.Site", "CoachUs.Site\CoachUs.Site.csproj", "{8EBCD3D7-A1D9-4EB8-991A-D8D723D52447}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CFB3D8CF-9098-41A4-9EC3-D257EA4AB795}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFB3D8CF-9098-41A4-9EC3-D257EA4AB795}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFB3D8CF-9098-41A4-9EC3-D257EA4AB795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBCD3D7-A1D9-4EB8-991A-D8D723D52447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBCD3D7-A1D9-4EB8-991A-D8D723D52447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBCD3D7-A1D9-4EB8-991A-D8D723D52447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBCD3D7-A1D9-4EB8-991A-D8D723D52447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

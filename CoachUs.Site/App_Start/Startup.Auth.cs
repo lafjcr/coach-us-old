@@ -28,9 +28,9 @@ namespace CoachUs.Site
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "496068057178682",
+               appSecret: "b4cbad757dd4682671aac9cd60f6819b");
 
             app.UseGoogleAuthentication();
         }

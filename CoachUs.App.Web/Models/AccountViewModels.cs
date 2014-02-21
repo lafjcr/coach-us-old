@@ -4,9 +4,13 @@ namespace CoachUs.App.Web.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
+        //[Required]
+        //[Display(Name = "User name")]
+        public string UserName { get { return Email.Substring(0, Email.IndexOf("@")); } }
+
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+        [Display(Name = "Email address")]
+        public string Email { get; set; }
     }
 
     public class ManageUserViewModel
@@ -30,9 +34,13 @@ namespace CoachUs.App.Web.Models
 
     public class LoginViewModel
     {
+        //[Required]
+        //[Display(Name = "User name")]
+        public string UserName { get { return Email.Substring(0, Email.IndexOf("@")); } }
+
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+        [Display(Name = "Email address")]
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -45,9 +53,13 @@ namespace CoachUs.App.Web.Models
 
     public class RegisterViewModel
     {
+        //[Required]
+        //[Display(Name = "User name")]
+        public string UserName { get { return Email.Substring(0, Email.IndexOf("@")); } }
+
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+        [Display(Name = "Email address")]
+        public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

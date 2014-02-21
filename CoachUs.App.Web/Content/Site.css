@@ -40,3 +40,13 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.btn-no-border {
+    border: none;
+}
+
+.btn-message {
+    margin-top: 3px;
+    font-size: xx-small;
+    text-transform: uppercase;
+}

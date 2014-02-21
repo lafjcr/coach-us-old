@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using CoachUs.App.Web.Models;
+using CoachUs.Security;
 
 namespace CoachUs.App.Web.Controllers
 {
@@ -17,7 +18,7 @@ namespace CoachUs.App.Web.Controllers
     {
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
-        {
+        {            
         }
 
         public AccountController(UserManager<ApplicationUser> userManager)
@@ -26,7 +27,7 @@ namespace CoachUs.App.Web.Controllers
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
-
+        
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -45,16 +46,17 @@ namespace CoachUs.App.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if (user != null)
+                var userName = SecurityManager.FindUserNameByEmailAsync(model.Email);
+                if (!String.IsNullOrEmpty(userName))
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    var user = await UserManager.FindAsync(userName, model.Password);
+                    if (user != null)
+                    {
+                        await SignInAsync(user, model.RememberMe);
+                        return RedirectToLocal(returnUrl);
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username or password.");
-                }
+                ModelState.AddModelError("", "Invalid username or password.");
             }
 
             // If we got this far, something failed, redisplay form
@@ -78,16 +80,24 @@ namespace CoachUs.App.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                var emailExists = SecurityManager.ExistsEmail(model.Email);
+                if (!emailExists)
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    var user = new ApplicationUser() { UserName = SecurityManager.GetNextUserNameConsecutive(model.UserName), Email = model.Email };
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
+                        await SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        AddErrors(result);
+                    }
                 }
                 else
                 {
-                    AddErrors(result);
+                    AddError("Email address already registered.");
                 }
             }
 
@@ -212,9 +222,14 @@ namespace CoachUs.App.Web.Controllers
             else
             {
                 // If the user does not have an account, then prompt the user to create an account
-                ViewBag.ReturnUrl = returnUrl;
-                ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName });
+                //ViewBag.ReturnUrl = returnUrl;
+                //ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
+                //return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName });
+
+                // If the user does not have an account,  then create an account automatically
+                var externalIdentity = await AuthenticationManager.GetExternalIdentityAsync(DefaultAuthenticationTypes.ExternalCookie);
+                var fbInfo = new Facebook.FacebookUserProfile(externalIdentity.Claims);
+                return await ExternalLoginConfirmation(new ExternalLoginConfirmationViewModel() { Email = fbInfo.Email }, returnUrl);
             }
         }
 
@@ -265,22 +280,31 @@ namespace CoachUs.App.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user);
-                if (result.Succeeded)
+                var emailExists = SecurityManager.ExistsEmail(model.Email);
+                if (!emailExists)
                 {
-                    result = await UserManager.AddLoginAsync(user.Id, info.Login);
+                    var user = new ApplicationUser() { UserName = SecurityManager.GetNextUserNameConsecutive(model.UserName), Email = model.Email };
+                    var result = await UserManager.CreateAsync(user);
                     if (result.Succeeded)
                     {
-                        await SignInAsync(user, isPersistent: false);
-                        return RedirectToLocal(returnUrl);
+                        result = await UserManager.AddLoginAsync(user.Id, info.Login);
+                        if (result.Succeeded)
+                        {
+                            await SignInAsync(user, isPersistent: false);
+                            return RedirectToLocal(returnUrl);
+                        }
                     }
+                    AddErrors(result);
                 }
-                AddErrors(result);
+                else
+                {
+                    AddError("Email address already registered.");
+                }
             }
 
             ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+            //return View(model);
+            return RedirectToAction("ExternalLogin");
         }
 
         //
@@ -290,6 +314,7 @@ namespace CoachUs.App.Web.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
+            SessionManager.User = String.Empty;
             return RedirectToAction("Index", "Home");
         }
 
@@ -336,6 +361,7 @@ namespace CoachUs.App.Web.Controllers
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+            SessionManager.User = user.Email;
         }
 
         private void AddErrors(IdentityResult result)
@@ -344,6 +370,11 @@ namespace CoachUs.App.Web.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+        private void AddError(string error)
+        {
+            ModelState.AddModelError("", error);
         }
 
         private bool HasPassword()

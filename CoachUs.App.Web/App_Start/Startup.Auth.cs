@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Facebook;
 using Owin;
+using System.Configuration;
+using System.Security.Claims;
 
 namespace CoachUs.App.Web
 {
@@ -28,9 +31,29 @@ namespace CoachUs.App.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //var scope = new List<string>() { "email", "user_about_me", "user_hometown", "friends_about_me", "friends_photos" };
+            var fbOptions = new FacebookAuthenticationOptions()
+            {
+                AppId = ConfigurationManager.AppSettings[Facebook.FacebookConstants.FacebookAppId],
+                AppSecret = ConfigurationManager.AppSettings[Facebook.FacebookConstants.FacebookAppSecret],
+                Provider = new FacebookAuthenticationProvider()
+                {
+                    OnAuthenticated = async context =>
+                    {
+                        foreach (var x in context.User)
+                            context.Identity.AddClaim(new Claim(x.Key, x.Value.ToString()));
+                        //Get the access token from FB and store it in the database and use FacebookC# SDK to get more information about the user
+                        context.Identity.AddClaim(new Claim(Facebook.FacebookConstants.FacebookAccessToken, context.AccessToken));
+                    }
+                },
+                SignInAsAuthenticationType = DefaultAuthenticationTypes.ExternalCookie
+            };
+            fbOptions.Scope.Add(Facebook.FacebookScope.Email);
+            fbOptions.Scope.Add(Facebook.FacebookScope.UserAboutMe);
+            fbOptions.Scope.Add(Facebook.FacebookScope.Birthday);
+            fbOptions.Scope.Add(Facebook.FacebookScope.Location);
+            fbOptions.Scope.Add(Facebook.FacebookScope.Hometown);
+            app.UseFacebookAuthentication(fbOptions);
 
             //app.UseGoogleAuthentication();
         }

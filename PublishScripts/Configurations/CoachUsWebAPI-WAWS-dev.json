@@ -1,0 +1,21 @@
+{
+    "environmentSettings": {
+        "webSite": {
+            "name": "coachus-api",
+            "location": "South Central US"
+        },
+        "databases": [
+            {
+                "connectionStringName": "DefaultConnection",
+                "databaseName": "coachus-api_db",
+                "serverName": "lafjcr",
+                "user": "dbadmin",
+                "password": "",
+                "edition": "",
+                "size": "",
+                "collation": "",
+                "location": "South Central US"
+            }
+        ]
+    }
+}

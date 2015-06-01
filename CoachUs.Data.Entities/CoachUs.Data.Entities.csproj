@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,106 +43,74 @@
   <ItemGroup>
     <Compile Include="..\CoachUs.Data\Action.cs">
       <Link>Action.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Activity.cs">
       <Link>Activity.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\CoachUs.Data\CoachPlan.cs">
-      <Link>CoachPlan.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
+    <Compile Include="..\CoachUs.Data\ActivityCategory.cs">
+      <Link>ActivityCategory.cs</Link>
     </Compile>
-    <Compile Include="..\CoachUs.Data\CoachUs.cs">
-      <Link>CoachUs.cs</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoachUs.tt</DependentUpon>
+    <Compile Include="..\CoachUs.Data\ActivityResult.cs">
+      <Link>ActivityResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CoachUs.Data\AthletePlan.cs">
+      <Link>AthletePlan.cs</Link>
     </Compile>
     <Compile Include="..\CoachUs.Data\Event.cs">
       <Link>Event.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\EventTraining.cs">
       <Link>EventTraining.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Fare.cs">
       <Link>Fare.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\File.cs">
       <Link>File.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Inventory.cs">
       <Link>Inventory.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\License.cs">
       <Link>License.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\LicensePayment.cs">
       <Link>LicensePayment.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Permission.cs">
       <Link>Permission.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Plan.cs">
       <Link>Plan.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
-    </Compile>
-    <Compile Include="..\CoachUs.Data\Result.cs">
-      <Link>Result.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Role.cs">
       <Link>Role.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Sale.cs">
       <Link>Sale.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Subscription.cs">
       <Link>Subscription.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\SubscriptionPayment.cs">
       <Link>SubscriptionPayment.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Team.cs">
       <Link>Team.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\TeamPlan.cs">
       <Link>TeamPlan.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\TeamUser.cs">
       <Link>TeamUser.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\Training.cs">
       <Link>Training.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="..\CoachUs.Data\User.cs">
       <Link>User.cs</Link>
-      <DependentUpon>CoachUs.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\CoachUs.Data\CoachUs.tt">
-      <Link>CoachUs.tt</Link>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CoachUs.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

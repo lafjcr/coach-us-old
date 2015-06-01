@@ -20,7 +20,7 @@ namespace CoachUs.Data.Entities
         public short Users { get; set; }
         public short Days { get; set; }
         public decimal Amount { get; set; }
-        public bool Paid { get; set; }
+        public bool IsPaid { get; set; }
     
         public virtual License License { get; set; }
     }

@@ -16,15 +16,15 @@ namespace CoachUs.Data.Entities
     {
         public Activity()
         {
-            this.Results = new HashSet<Result>();
+            this.Results = new HashSet<ActivityResult>();
         }
     
         public int ID { get; set; }
         public int TrainingID { get; set; }
-        public byte Category { get; set; }
+        public int ActivityCategoryId { get; set; }
         public byte Order { get; set; }
-        public byte Repetitions { get; set; }
-        public decimal Serie { get; set; }
+        public byte Series { get; set; }
+        public decimal Repetitions { get; set; }
         public byte Unit { get; set; }
         public decimal Goal { get; set; }
         public byte GoalUnit { get; set; }
@@ -32,6 +32,7 @@ namespace CoachUs.Data.Entities
         public byte Status { get; set; }
     
         public virtual Training Training { get; set; }
-        public virtual ICollection<Result> Results { get; set; }
+        public virtual ICollection<ActivityResult> Results { get; set; }
+        public virtual ActivityCategory ActivityCategory { get; set; }
     }
 }

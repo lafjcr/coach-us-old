@@ -17,17 +17,17 @@ namespace CoachUs.Data.Entities
         public Training()
         {
             this.Activities = new HashSet<Activity>();
-            this.EventTrainings = new HashSet<EventTraining>();
+            this.Events = new HashSet<EventTraining>();
         }
     
         public int ID { get; set; }
         public int PlanID { get; set; }
-        public System.DateTime Day { get; set; }
+        public System.DateTime Date { get; set; }
         public byte Category { get; set; }
         public byte Status { get; set; }
     
         public virtual ICollection<Activity> Activities { get; set; }
-        public virtual ICollection<EventTraining> EventTrainings { get; set; }
+        public virtual ICollection<EventTraining> Events { get; set; }
         public virtual Plan Plan { get; set; }
     }
 }

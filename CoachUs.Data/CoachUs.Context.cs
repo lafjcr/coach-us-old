@@ -28,7 +28,7 @@ namespace CoachUs.Data
     
         public DbSet<CoachUs.Data.Entities.Action> Actions { get; set; }
         public DbSet<Activity> Activities { get; set; }
-        public DbSet<CoachPlan> CoachPlans { get; set; }
+        public DbSet<AthletePlan> AthletePlans { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<EventTraining> EventTrainings { get; set; }
         public DbSet<Fare> Fares { get; set; }
@@ -38,7 +38,7 @@ namespace CoachUs.Data
         public DbSet<LicensePayment> LicensePayments { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Plan> Plans { get; set; }
-        public DbSet<Result> Results { get; set; }
+        public DbSet<ActivityResult> ActivityResults { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
@@ -48,5 +48,6 @@ namespace CoachUs.Data
         public DbSet<TeamUser> TeamUsers { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ActivityCategory> ActivityCategories { get; set; }
     }
 }

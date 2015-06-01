@@ -33,7 +33,7 @@ namespace CoachUs.Data.Entities
     
         public virtual ICollection<Event> Events { get; set; }
         public virtual ICollection<Fare> Fares { get; set; }
-        public virtual File File { get; set; }
+        public virtual File Logo { get; set; }
         public virtual ICollection<Inventory> Inventories { get; set; }
         public virtual ICollection<Subscription> Subscriptions { get; set; }
         public virtual User Owner { get; set; }

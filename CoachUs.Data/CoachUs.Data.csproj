@@ -56,9 +56,15 @@
     <None Include="Activity.cs">
       <DependentUpon>CoachUs.tt</DependentUpon>
     </None>
-    <None Include="CoachPlan.cs">
+    <Compile Include="ActivityCategory.cs">
       <DependentUpon>CoachUs.tt</DependentUpon>
-    </None>
+    </Compile>
+    <Compile Include="ActivityResult.cs">
+      <DependentUpon>CoachUs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AthletePlan.cs">
+      <DependentUpon>CoachUs.tt</DependentUpon>
+    </Compile>
     <Compile Include="CoachUs.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,9 +109,6 @@
       <DependentUpon>CoachUs.tt</DependentUpon>
     </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Result.cs">
-      <DependentUpon>CoachUs.tt</DependentUpon>
-    </None>
     <None Include="Role.cs">
       <DependentUpon>CoachUs.tt</DependentUpon>
     </None>
@@ -164,6 +167,9 @@
       <Project>{bcc77935-5291-4881-8bc1-e6fea8cf0524}</Project>
       <Name>CoachUs.Data.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CoachUs.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

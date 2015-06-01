@@ -20,14 +20,14 @@ namespace CoachUs.Data.Entities
         }
     
         public int ID { get; set; }
-        public int TeamOwnerID { get; set; }
+        public int OwnerID { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public short TrialDays { get; set; }
         public short Days { get; set; }
         public short TotalUsers { get; set; }
         public short AvailableUsers { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual User Owner { get; set; }
         public virtual ICollection<LicensePayment> LicensePayments { get; set; }
     }
 }

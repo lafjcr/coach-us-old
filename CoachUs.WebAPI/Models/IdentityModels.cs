@@ -21,7 +21,7 @@ namespace CoachUs.WebAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CoachUs", throwIfV1Schema: false)
         {
         }
         

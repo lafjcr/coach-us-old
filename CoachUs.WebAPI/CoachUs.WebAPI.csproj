@@ -217,6 +217,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LicensesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -306,9 +307,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoachUs.Data.Entities\CoachUs.Data.Entities.csproj">
-      <Project>{bcc77935-5291-4881-8bc1-e6fea8cf0524}</Project>
-      <Name>CoachUs.Data.Entities</Name>
+    <ProjectReference Include="..\CoachUs.Data\CoachUs.Data.csproj">
+      <Project>{68bc9693-49dc-4f25-adf1-0e7fc7f2742f}</Project>
+      <Name>CoachUs.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
